@@ -7,28 +7,18 @@ use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\TreatmentController;
 
 // LANDING PAGE & OTHER
-Route::get('/Eternelle-Beauty', function () {
+Route::get('/', function () {
     return view('page.index');
 });
-Route::get('/membership', function () {
-    return view('page.membership');
-});
-Route::get('/appointment', function () {
-    return view('page.appointment');
+Route::get('/promo', function () {
+    return view('page.promo');
 });
 // Route::get('about-us', function () {
 //     return view('homepage.about-us');
 // });
-// Route::get('Promo', function () {
-//     return view('homepage.promo');
-// });
 
-// Route::get('display-treatment', [TreatmentController::class, 'treatmentPage']);
-// Route::get('display-product', [ProductController::class, 'productPage']);
-// Route::get('show-product/{id}', [ProductController::class, 'show'])->name('showProduct');
-
-// Route::post('save-appointment', [ReservationController::class, 'storeUser']);
-// Route::get('add-appointment', [ReservationController::class, 'addAppointment'])->name('add-appointment');
-
-// Route::post('save-membership', [MembershipController::class, 'storeUser']);
-// Route::get('add-new-membership', [MembershipController::class, 'addNewMembership'])->name('add-new-membership');
+Route::get('/show-product/{id}', [ProductController::class, 'show'])->name('showProduct');
+Route::resource('/products', ProductController::class);
+Route::resource('/treatments', TreatmentController::class);
+Route::resource('/reservations', ReservationController::class);
+Route::resource('/memberships', MembershipController::class);

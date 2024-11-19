@@ -8,19 +8,18 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    /*** Fungsi untuk membaca list product untuk page Product ***/
-    public function productPage(Request $request)
+    public function index(Request $request)
     {
         $products = Product::where('show_status', 1)
-        ->orderBy('name')
-        ->get();
+            ->orderBy('name')
+            ->get();
 
-        $perPage = 9;
+        $perPage = 8;
         $page = $request->get('page', 1);
         $offset = ($page - 1) * $perPage;
         $productsOnPage = $products->slice($offset, $perPage);
 
-        return view('homepage.display-product', [
+        return view('page.product', [
             'products' => $productsOnPage,
             'totalProducts' => $products->count(),
             'currentPage' => $page,
@@ -28,10 +27,9 @@ class ProductController extends Controller
         ]);
     }
 
-    /*** Fungsi untuk membaca list detail product di Page Product  // GET /products/{product} ***/
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        return view('homepage.show-product', compact('product'));
+        return view('inside-page.show-product', compact('product'));
     }
 }

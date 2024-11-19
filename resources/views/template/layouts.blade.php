@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
-    <link rel="icon" href="{{ asset('assets/images/loogo.png') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('assets/images/eternelle.png') }}" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gilda+Display:wght@400&display=swap" rel="stylesheet">
@@ -23,8 +23,7 @@
     </div>
 
     @include('partials.footer')
-    <script src="{{ asset('script.js') }}"></script>
-    <script src="{{ asset('api.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}" defer></script>
 </body>
 
 </html>
