@@ -9,19 +9,19 @@ use Illuminate\Support\Facades\Storage;
 class TreatmentController extends Controller
 {
     /*** Fungsi untuk membaca list treatment untuk page Treatment ***/
-    public function treatmentPage(Request $request)
+    public function index(Request $request)
     {
         $treatments = Treatment::where('show_status', 1)
         ->orderBy('name')
         ->get();
 
-        $perPage = 9; // Tentukan berapa banyak produk per halaman
-        $page = $request->get('page', 1); // Dapatkan halaman saat ini, default ke 1
-        $offset = ($page - 1) * $perPage; // Hitung offset
-        $treatmentsOnPage = $treatments->slice($offset, $perPage); // Ambil produk untuk halaman ini
+        $perPage = 8;
+        $page = $request->get('page', 1);
+        $offset = ($page - 1) * $perPage;
+        $treatmentsOnPage = $treatments->slice($offset, $perPage);
 
         // Kirim data ke view
-        return view('homepage.display-treatment', [
+        return view('page.treatment', [
             'treatments' => $treatmentsOnPage,
             'totalTreatments' => $treatments->count(),
             'currentPage' => $page,

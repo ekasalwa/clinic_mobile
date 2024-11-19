@@ -1,14 +1,16 @@
 @extends('template.layouts')
 
+@section('title', 'Éternelle Beauté')
+
 @section('content')
     <!----- BANNER ----->
     <div class="hero-section">
         <h1>Étern<span class="highlight">e</span>lle B<span class="highlight">e</span>auté</h1>
         <p>Great experience with the best treatment</p>
         <div class="buttons">
-            <button class="btn-choco">Treatment</button>
+            <button class="btn-choco" onclick="location.href='{{ url('/treatments') }}'">Treatment</button>
             <button class="btn-white">Location</button>
-            <button class="btn-choco">Product</button>
+            <button class="btn-choco" onclick="location.href='{{ url('/products') }}'">Product</button>
         </div>
     </div>
 
@@ -104,8 +106,8 @@
             </div>
         </div>
         <div class="action-buttons">
-            <button class="btn-details">More Details</button>
-            <button class="btn-buy">Buy Now</button>
+            <button class="btn-details" onclick="location.href='{{ url('/products') }}'">More Details</button>
+            <button class="btn-buy" onclick="location.href='{{ url('/reservations') }}'">Buy Now</button>
         </div>
     </div>
 
