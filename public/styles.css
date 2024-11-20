@@ -157,7 +157,7 @@ body {
     padding: 5px 10px;
 }
 
-body.no-scroll {
+.no-scroll {
     overflow: hidden;
 }
 
@@ -166,7 +166,6 @@ body.no-scroll {
     position: relative;
     text-align: center;
     padding: 50px;
-    /* margin-top: 30px; */
     overflow: hidden;
     animation: fadeIn 1.5s ease-out forwards;
 }
@@ -255,7 +254,7 @@ body.no-scroll {
     font-family: "Inter-Regular", Helvetica;
 }
 
-/***** TEXT *****/
+/***** TEXT OPENING *****/
 .intro-text {
     text-align: center;
     margin-top: 15px;
@@ -268,7 +267,7 @@ body.no-scroll {
     color: #d4a760;
 }
 
-/***** TREATMENT *****/
+/***** TREATMENT INDEX *****/
 .treatment-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -286,7 +285,7 @@ body.no-scroll {
     margin-right: auto;
 }
 
-.card-content {
+.card-content { 
     border-left: 1px solid #c4a484;
     border-right: 1px solid #c4a484;
     border-bottom: 1px solid #c4a484;
@@ -339,7 +338,7 @@ body.no-scroll {
     margin: 10px 10px;
 }
 
-/***** PRODUCT *****/
+/***** PRODUCT INDEX *****/
 .product-section p {
     margin-bottom: 5px;
     margin-left: 10px;
@@ -655,10 +654,9 @@ body.no-scroll {
 /***** MEMBERSHIP *****/
 .form-container {
     width: 100%;
-    max-width: 500px;
     padding: 30px 60px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; 
+    align-content: center;
 }
 
 .membership-online {
@@ -809,6 +807,7 @@ input[type="date"]:focus {
     color: #a5a5a5;
 }
 
+/***** MODAL TREATMENT *****/
 .modal {
     display: none;
     position: fixed;
@@ -866,25 +865,24 @@ input[type="date"]:focus {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
     padding-bottom: 5%;
     padding-top: 3%;
+    max-height: calc(2 * (200px + 20px));
 }
 
 .treatment-item {
+    flex: 0 0 calc(44.44% - 5px);
+    width: calc(33.33% - 20px);
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: calc(50% - 10px);
     padding: 10px;
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
-}
-
-.treatment-item:hover {
-    transform: scale(1.05);
 }
 
 .treatment-item img {
@@ -897,6 +895,24 @@ input[type="date"]:focus {
 .treatment-item p {
     font-size: 10px;
     color: #333;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    background-color: #f1f1f1;
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: #ddd;
 }
 
 
@@ -1075,6 +1091,15 @@ input[type="date"]:focus {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    transition: grid-template-columns 0.3s ease;
+}
+
+.treatment-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border-radius: 8px;
 }
 
 .treatment-card {
@@ -1082,18 +1107,48 @@ input[type="date"]:focus {
     border-radius: 8px;
     padding: 10px;
     text-align: center;
+    height: 190px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .treatment-card img {
     width: 100%;
     max-height: 100px;
     border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.treatment-description {
+    display: none;
+    background-color: #D7B89A;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+    height: auto;
+    overflow: hidden;
 }
 
 .treatment-card p {
     margin-top: 5px;
     color: #000;
     font-size: 14px;
+}
+
+.treatment-wrapper.active {
+    flex-direction: row;
+    background-color: #D7B89A;
+}
+
+.treatment-wrapper.active .treatment-description {
+    display: block;
+    width: 100px;
+}
+
+.treatment-wrapper.active {
+    grid-column: span 2;
 }
 
 .pagination {
@@ -1114,6 +1169,7 @@ input[type="date"]:focus {
 .pagination span:hover {
     background-color: #D7B89A;
 }
+
 
 /***** ALERT *****/
 .alert, .alert2 {
@@ -1290,7 +1346,6 @@ input[type="date"]:focus {
     transform: scale(1.05);
 }
 
-/* Responsive Design */
 @media (min-width: 768px) {
     .product-body {
         gap: 20px;
@@ -1306,5 +1361,229 @@ input[type="date"]:focus {
 
     .description {
         font-size: 16px;
+    }
+}
+
+
+/***** ABOUT US *****/
+.about-us-container {
+    padding: 20px;
+}
+
+.about-us h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #3A1F0E;
+    margin: 0;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.yellow-letter {
+    color: #B19A21;
+}
+
+
+.content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: black;
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.image-section {
+    text-align: center;
+}
+
+.image-section img {
+    width: 80%;
+    border-radius: 70px;
+    margin-top: 20px;
+}
+
+.history {
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+
+.history h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #B19A21;
+    text-align: center;
+}
+
+.history h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #B19A21;
+    text-align: center;
+}
+
+.history p {
+    text-align: justify;
+    padding-top: 10px;
+}
+
+.ellipse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 40px;
+    background-color: #EDE0D4;
+    color: #000000;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid #3A1F0E;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
+}
+
+.ellipse:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.loca h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #B19A21;
+    text-align: center;
+}
+
+.loca-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.about-card {
+    background-color: #C4A484;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    text-align: center;
+}
+
+.about-card h3 {
+    font-size: 1.2rem;
+    color: #401B01;
+    margin-bottom: 10px;
+}
+
+.about-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    color: #333;
+}
+
+@media (min-width: 768px) {
+    .loca-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.decorative-line {
+    width: 50%;
+    height: 2px;
+    background-color: #B19A21;
+    margin: 10px auto;
+}
+
+.decorative-line2 {
+    width: 80%;
+    height: 2px;
+    background-color: #B19A21;
+    margin: 0px auto;
+}
+
+.decorative-line-card {
+    width: 60%;
+    height: 2px;
+    background-color: #401B01;
+    margin: 10px auto;
+    border: none;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #3A1F0E;
+    flex-wrap: wrap;
+}
+
+.slider label {
+    cursor: pointer;
+    border: 2px solid #401b01;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.slider label:hover {
+    background-color: #401b01;
+    color: white;
+    transform: scale(1.1);
+}
+
+input[type="radio"]:checked+label {
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
+.description .content2 {
+    display: none;
+}
+
+#year2021:checked~.description .content2[data-year="2021"],
+#year2022:checked~.description .content2[data-year="2022"],
+#year2023:checked~.description .content2[data-year="2023"],
+#year2024:checked~.description .content2[data-year="2024"],
+#year2025:checked~.description .content2[data-year="2025"] {
+    display: flex;
+}
+
+.description .content2 p {
+    font-size: 12px;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .slider {
+        justify-content: flex-start;
+        gap: 5px;
+    }
+
+    .slider label {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider {
+        justify-content: center;
     }
 }

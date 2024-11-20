@@ -13,9 +13,9 @@ Route::get('/', function () {
 Route::get('/promo', function () {
     return view('page.promo');
 });
-// Route::get('about-us', function () {
-//     return view('homepage.about-us');
-// });
+Route::get('/about-us', function () {
+    return view('page.about-us');
+});
 
 Route::get('/show-product/{id}', [ProductController::class, 'show'])->name('showProduct');
 Route::resource('/products', ProductController::class);

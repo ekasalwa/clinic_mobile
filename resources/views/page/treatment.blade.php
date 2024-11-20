@@ -7,11 +7,16 @@
         <h2>Our Treatment</h2>
         <div class="treatment-grid">
             @foreach ($treatments as $treatment)
+            <div class="treatment-wrapper" data-id="{{ $treatment->id }}">
                 <div class="treatment-card">
                     <img src="{{ asset('storage/' . $treatment->image) }}" alt="{{ $treatment->name }}" loading="lazy" />
-                    <p>{{ $treatment->name }}</p>
-                    <p>Rp {{ number_format($treatment->selling_price, 2) }}</p>
+                    <p class="treatment-name">{{ $treatment->name }}</p>
+                    <p class="treatment-price">Rp {{ number_format($treatment->selling_price, 2) }}</p>
                 </div>
+                <div class="treatment-description">
+                    <p>{{ $treatment->description }}</p>
+                </div>
+            </div>
             @endforeach
         </div>
         <div class="pagination">
@@ -24,4 +29,6 @@
             @endfor
         </div>
     </div>
+
+    <script src="{{ asset('js/display.js') }}" defer></script>
 @endsection
