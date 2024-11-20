@@ -12,7 +12,7 @@
         <a href="{{ ('/promo') }}">Promo</a>
         <p>Enjoy exclusive offers</p>
             
-        <a href="#">About Us</a>
+        <a href="{{ ('/about-us') }}">About Us</a>
         <p>Learn more about us</p>
             
         <div class="btn-container">
