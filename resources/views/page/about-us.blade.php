@@ -11,6 +11,7 @@
                 B<span class="yellow-letter">E</span>AUT<span class="yellow-letter">É</span>
             </h1>
         </div>
+
         <section class="content">
             <p>
                 Founded by a Beauty Doctor who has decades of experience in the field of aesthetics and beauty.
@@ -22,6 +23,7 @@
                 <img src="../assets/images/about-us.jpg" alt="Doctor">
             </div>
         </section>
+        
         <footer class="history">
             <h2>Our History</h2>
             <div class="decorative-line"></div>
@@ -102,7 +104,7 @@
             </div>
         </footer>
 
-        <section class="loca">
+        <section id="location" class="loca">
             <h2>Our Location</h2>
             <div class="decorative-line"></div>
             <div class="decorative-line2"></div>

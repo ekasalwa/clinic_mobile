@@ -9,7 +9,7 @@
         <p>Great experience with the best treatment</p>
         <div class="buttons">
             <button class="btn-choco" onclick="location.href='{{ url('/treatments') }}'">Treatment</button>
-            <button class="btn-white">Location</button>
+            <button class="btn-white" onclick="location.href='{{ url('/about-us') }}#location'">Location</button>
             <button class="btn-choco" onclick="location.href='{{ url('/products') }}'">Product</button>
         </div>
     </div>
@@ -142,12 +142,12 @@
             <div class="news-item">
                 <h3>New Service Just Launch</h3>
                 <p>We will introduces a new facial treatments with the latest and newest technology.</p>
-                <button>Learn More</button>
+                <button onclick="location.href='{{ url('/blank') }}'">Learn More</button>
             </div>
             <div class="news-item">
                 <h3>Expansion of Clinic Branches</h3>
                 <p>Today, we officially opens the 6th branch in the Bandung. Check the discount Now!</p>
-                <button>Learn More</button>
+                <button onclick="location.href='{{ url('/blank') }}'">Learn More</button>
             </div>
         </div>
     </div>

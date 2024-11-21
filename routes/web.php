@@ -16,6 +16,9 @@ Route::get('/promo', function () {
 Route::get('/about-us', function () {
     return view('page.about-us');
 });
+Route::get('/blank', function () {
+    return view('inside-page.blank');
+});
 
 Route::get('/show-product/{id}', [ProductController::class, 'show'])->name('showProduct');
 Route::resource('/products', ProductController::class);
